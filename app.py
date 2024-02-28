@@ -17,6 +17,9 @@ import streamlit as st
 
 import streamlit as st
 import os
+import cv2
+from PIL import Image
+import numpy as np
 
 def save_uploaded_file(uploaded_file, folder_path):
     if not os.path.exists(folder_path):
@@ -26,14 +29,20 @@ def save_uploaded_file(uploaded_file, folder_path):
     st.success(f"Saved file: {folder_path}/{uploaded_file.name}")
 
 def main():
-    st.title("Image Uploader and Saver")
+    st.title("Image Uploader and Saver from Webcam")
 
-    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+    cap = cv2.VideoCapture(0)
 
-    if uploaded_file is not None:
-        folder_path = "uploaded_images"
-        if st.button("Save Image"):
-            save_uploaded_file(uploaded_file, folder_path)
+    if st.button("Capture Image"):
+        ret, frame = cap.read()
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        image = Image.fromarray(frame)
+        st.image(image, caption='Captured Image', use_column_width=True)
+        save_image = st.button("Save Image")
+        if save_image:
+            save_uploaded_file(image, "captured_images")
+
+    cap.release()
 
 if __name__ == "__main__":
     main()
