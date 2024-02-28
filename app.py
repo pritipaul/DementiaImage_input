@@ -30,54 +30,20 @@
 
 
 
+from PIL import Image
+import glob
 
 
+images = glob.glob("/path/to/images/")
+index= st.number_input('Index')
+
+if st.button('Next'):
+    index+=1
 
 
-import streamlit as st
-import subprocess
+if st.button('Prev'):
+    if index > 0
+        index = index -1
 
-# Install OpenCV within Streamlit
-st.write("Installing OpenCV...")
-subprocess.call("pip install opencv-python", shell=True)
-
-import cv2
-import os
-from github import Github
-
-# Function to take a photo using webcam
-def take_photo():
-    cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
-    cap.release()
-    return frame
-
-# Function to upload image to GitHub
-def upload_to_github(image_path, image_name):
-    github_token = st.secrets["github_token"]  # Store your GitHub token securely in Streamlit Secrets
-    repo_name = "pritipaul/DementiaImage_input"  # Change this to your GitHub repository name
-    g = Github(github_token)
-    repo = g.get_repo(repo_name)
-    with open(image_path, 'rb') as file:
-        content = file.read()
-    repo.create_file(f"images/{image_name}.jpg", "Uploaded photo", content)
-
-def main():
-    st.title("Webcam Photo Uploader")
-
-    if st.button("Take Photo"):
-        photo = take_photo()
-        image_name = st.text_input("Enter photo name:")
-        if image_name:
-            image_path = f"{image_name}.jpg"
-            cv2.imwrite(image_path, photo)
-            st.image(photo, caption='Captured Photo', use_column_width=True)
-
-            # Upload photo to GitHub
-            upload_to_github(image_path, image_name)
-            st.success("Photo uploaded to GitHub!")
-        else:
-            st.warning("Please enter a valid photo name.")
-
-if __name__ == "__main__":
-    main()
+image = Image.open(images[index])
+st.image(image, use_column_width=True)
