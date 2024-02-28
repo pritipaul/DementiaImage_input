@@ -1,4 +1,4 @@
 streamlit
-cv2
+opencv
 opencv-python-headless
 opencv-python Pillow
