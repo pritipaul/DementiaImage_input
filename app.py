@@ -17,8 +17,7 @@ image_name = st.text_input('Enter image name (without extension):')
 if st.button('Save Image'):
     if picture:
         if image_name:
-            # file_path = f"path/to/your/image/{image_name}.jpg"  # Change the path as needed
-            file_path = os.path.join("path/to/your/image", f"{image_name}.jpg")  # Change the path as needed
+            file_path = f"path/to/your/image/{image_name}.jpg"  # Change the path as needed
 
             picture.save(file_path)
             st.success(f"Image saved as '{image_name}.jpg' successfully!")
