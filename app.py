@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Define a callback function for when the camera input changes
-def on_camera_change(image_data):
+def on_camera_change(image_data, *args, **kwargs):
     # Display the captured image
     st.image(image_data, caption='Captured Image', use_column_width=True)
 
