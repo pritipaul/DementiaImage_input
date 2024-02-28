@@ -35,6 +35,8 @@
 
 
 import streamlit as st
+st.write("Installing OpenCV...")
+st.system("pip install opencv-python-headless")
 import cv2
 import os
 from github import Github
