@@ -59,4 +59,5 @@ import streamlit as st
 
 def main(sub):
     st.subheader(sub)
-    st.camera_input("Take a picture")
+    picture = st.camera_input("Take a picture")
+main()
