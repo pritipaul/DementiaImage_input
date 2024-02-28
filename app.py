@@ -53,7 +53,7 @@ if picture:
                 image = Image.open(picture)
 
                 # Create directory if it doesn't exist
-                folder_path = os.path.join("images", images)
+                folder_path = os.path.join("images", folder_name)
                 if not os.path.exists(folder_path):
                     os.makedirs(folder_path)
 
