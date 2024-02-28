@@ -42,7 +42,7 @@ if st.button('Next'):
 
 
 if st.button('Prev'):
-    if index > 0
+    if index > 0:
         index = index -1
 
 image = Image.open(images[index])
