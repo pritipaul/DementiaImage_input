@@ -35,8 +35,12 @@
 
 
 import streamlit as st
+import subprocess
+
+# Install OpenCV within Streamlit
 st.write("Installing OpenCV...")
-st.system("pip install opencv-python-headless")
+subprocess.call("pip install opencv-python-headless", shell=True)
+
 import cv2
 import os
 from github import Github
