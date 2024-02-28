@@ -1,8 +1,9 @@
 import streamlit as st
 
 # Define a callback function for when the camera input changes
-def on_camera_change(image):
-    st.image(image, caption='Captured Image', use_column_width=True)
+def on_camera_change(image_data):
+    # Display the captured image
+    st.image(image_data, caption='Captured Image', use_column_width=True)
 
 # Create a camera input widget
 st.camera_input(
@@ -13,4 +14,3 @@ st.camera_input(
     disabled=False,
     label_visibility="visible"
 )
-
