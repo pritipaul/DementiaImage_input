@@ -22,8 +22,7 @@ if picture:
                 os.makedirs("images")
 
             # Save the image
-            # file_path = os.path.join("images", f"{image_name}.jpg")
-            file_path = './images/"{image_name}.jpg"'
+            file_path = os.path.join("images", f"{image_name}.jpg")
             image.save(file_path)
             st.success(f"Image saved as '{image_name}.jpg' successfully!")
         else:
