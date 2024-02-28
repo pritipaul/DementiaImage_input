@@ -28,7 +28,7 @@ from PIL import Image
 import os
 
 # Create a folder to save images if it doesn't exist
-SAVE_FOLDER = "images"
+SAVE_FOLDER = "image"
 os.makedirs(SAVE_FOLDER, exist_ok=True)
 
 # Take a picture
