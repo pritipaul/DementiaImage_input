@@ -28,14 +28,14 @@
 
 
 import streamlit as st
-# from PIL import Image
+from PIL import Image
 
-# # Take a picture
-# picture = st.camera_input("Take a picture")
+# Take a picture
+picture = st.camera_input("Take a picture")
 
-# if picture:
-#     # Display the image
-#     st.image(picture)
+if picture:
+    # Display the image
+    st.image(picture)
 
 #     # Input field for image name
 #     image_name = st.text_input('Enter image name (without extension):')
@@ -56,8 +56,3 @@ import streamlit as st
 
 
 
-
-def main(sub):
-    st.subheader(sub)
-    picture = st.camera_input("Take a picture")
-main()
