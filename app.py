@@ -14,6 +14,7 @@ import streamlit as st
 #     disabled=False,
 #     label_visibility="visible"
 # )
+!pip install
 
 import streamlit as st
 import os
