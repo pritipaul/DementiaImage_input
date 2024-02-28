@@ -32,10 +32,11 @@ from PIL import Image
 
 # Take a picture
 picture = st.camera_input("Take a picture")
-
+if 'myimage' not in session_state.key():
+    session_state['myimage'] = None
 if picture:
     # Display the image
-    st.image(picture)
+    session_state['myimage'] = st.image(picture)
 
 #     # Input field for image name
 #     image_name = st.text_input('Enter image name (without extension):')
