@@ -1,2 +1,2 @@
 streamlit
-CV2
+cv2
