@@ -15,3 +15,23 @@ import streamlit as st
 #     label_visibility="visible"
 # )
 
+import streamlit as st
+import os
+
+def save_uploaded_file(uploaded_file, folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    with open(os.path.join(folder_path, uploaded_file.name), "wb") as f:
+        f.write(uploaded_file.getbuffer())
+    return st.success(f"Saved file: {folder_path}/{uploaded_file.name}")
+
+def main():
+    st.title("Image Uploader and Saver")
+
+    uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+
+    if uploaded_file is not None:
+        save_uploaded_file(uploaded_file, "uploaded_images")
+
+if __name__ == "__main__":
+    main()
