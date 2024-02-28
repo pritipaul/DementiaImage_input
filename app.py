@@ -39,7 +39,7 @@ import subprocess
 
 # Install OpenCV within Streamlit
 st.write("Installing OpenCV...")
-subprocess.call("pip install opencv-python-headless", shell=True)
+subprocess.call("pip list | grep opencv-python", shell=True)
 
 import cv2
 import os
