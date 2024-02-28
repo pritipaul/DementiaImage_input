@@ -14,8 +14,7 @@ import streamlit as st
 #     disabled=False,
 #     label_visibility="visible"
 # )
-pip install
-
+pip install opencv-python
 import streamlit as st
 import os
 import cv2
